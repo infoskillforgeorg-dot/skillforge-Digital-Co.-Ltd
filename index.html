@@ -37,6 +37,22 @@
       .logo-frame{background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden;border:1px solid rgba(234,179,8,.3)}
       .live-pulse{width:8px;height:8px;background:#ef4444;border-radius:50%;display:inline-block;margin-right:8px;box-shadow:0 0 0 rgba(239,68,68,.4);animation:pulse 2s infinite}
       @keyframes pulse{0%{box-shadow:0 0 0 0 rgba(239,68,68,.7)}70%{box-shadow:0 0 0 10px rgba(239,68,68,0)}100%{box-shadow:0 0 0 0 rgba(239,68,68,0)}}
+      .muted{color:#4b5563}
+      .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);border:0}
+      .features .feature-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:36px 0}
+      .feature{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:18px;box-shadow:0 6px 20px rgba(15,23,42,.08);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+      .feature:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.12);border-color:rgba(212,175,55,.4)}
+      .courses .course-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;padding:10px 0 36px}
+      .tracks .track-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;padding:10px 0 36px}
+      .track-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:14px;box-shadow:0 6px 20px rgba(15,23,42,.08);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+      .track-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.12);border-color:rgba(212,175,55,.4)}
+      .course-card{background:var(--surface);border:1px solid var(--border);border-radius:14px;overflow:hidden;box-shadow:0 6px 20px rgba(15,23,42,.08);transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+      .course-card:hover{transform:translateY(-6px);box-shadow:0 18px 40px rgba(0,0,0,.12);border-color:rgba(212,175,55,.4)}
+      .course-content{padding:14px}
+      .reveal{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .6s ease}
+      .reveal.show{opacity:1;transform:none}
+      @media (max-width:900px){.hero-inner{grid-template-columns:1fr}.container.wide{max-width:100%}.features .feature-grid,.courses .course-grid,.tracks .track-grid{grid-template-columns:1fr 1fr}}
+      @media (max-width:640px){.nav-toggle{display:inline-flex}.nav-list{display:none;position:absolute;top:60px;left:0;right:0;background:var(--bg);border-bottom:1px solid var(--border);padding:14px 20px}.nav-list.open{display:flex;flex-direction:column;gap:12px}.features .feature-grid,.courses .course-grid,.tracks .track-grid{grid-template-columns:1fr}}
     </style>
     <link rel="stylesheet" href="./assets/css/styles.css">
   </head>
