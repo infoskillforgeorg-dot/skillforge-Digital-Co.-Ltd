@@ -27,9 +27,25 @@ themeBtn.addEventListener('click', () => {
 })
 
 navToggle.addEventListener('click', () => {
-  const open = navList.classList.toggle('open')
-  navToggle.setAttribute('aria-expanded', String(open))
+  const isMobile = window.innerWidth <= 640
+  if (isMobile) {
+    const menu = document.getElementById('mobile-menu')
+    const open = !menu?.classList.contains('open')
+    if (open) openMenu()
+    else closeMenu()
+    navToggle.setAttribute('aria-expanded', String(open))
+  } else {
+    const open = navList.classList.toggle('open')
+    navToggle.setAttribute('aria-expanded', String(open))
+  }
 })
+
+function openMenu() {
+  document.getElementById('mobile-menu')?.classList.add('open')
+}
+function closeMenu() {
+  document.getElementById('mobile-menu')?.classList.remove('open')
+}
 
 yearEl.textContent = new Date().getFullYear()
 
@@ -91,3 +107,28 @@ document.querySelector('.feedback-form')?.addEventListener('submit', (e) => {
   window.addEventListener('hashchange', activateFromHash)
   if (location.hash) activateFromHash()
 })()
+  }
+  window.addEventListener('hashchange', activateFromHash)
+  if (location.hash) activateFromHash()
+})()
+
+;(function initReveal() {
+  const targets = document.querySelectorAll('.reveal')
+  if (!('IntersectionObserver' in window)) {
+    targets.forEach(t => t.classList.add('show'))
+    return
+  }
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show')
+        observer.unobserve(entry.target)
+      }
+    })
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' })
+  targets.forEach(t => observer.observe(t))
+})()
+
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') closeMenu()
+})
