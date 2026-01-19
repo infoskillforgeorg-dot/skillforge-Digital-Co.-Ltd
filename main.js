@@ -54,3 +54,12 @@ document.querySelector('.feedback-form')?.addEventListener('submit', (e) => {
 document.querySelectorAll('a[aria-disabled="true"]').forEach(a => {
   a.addEventListener('click', (e) => e.preventDefault())
 })
+
+;(function markActiveNav() {
+  const path = location.pathname.toLowerCase()
+  document.querySelectorAll('.nav-list a').forEach(a => {
+    const href = a.getAttribute('href')?.toLowerCase() || ''
+    if (href.includes('academy') && path.includes('academy')) a.classList.add('active')
+    else if (href.includes('agency') && path.includes('agency')) a.classList.add('active')
+  })
+})()
