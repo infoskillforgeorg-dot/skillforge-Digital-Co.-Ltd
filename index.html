@@ -10,6 +10,7 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="/">
     <title>SkillForge</title>
+    <meta name="sf:logo" content="">
     <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -37,18 +38,18 @@
     <a class="skip-link" href="#main">Skip to content</a>
     <header class="site-header">
       <div class="container header-inner">
-        <div class="brand">
-          <img src="./assets/img/logo.svg" alt="SkillForge logo" width="32" height="32">
+        <a class="brand" href="/" aria-label="SkillForge home">
+          <img id="brand-logo" src="./assets/img/logo.svg" alt="SkillForge logo" width="32" height="32">
           <span>SkillForge</span>
-        </div>
+        </a>
         <nav class="nav" aria-label="Main">
           <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false">
             <span class="sr-only">Toggle navigation</span>
             <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round"/></svg>
           </button>
           <ul id="primary-navigation" class="nav-list">
-            <li><a href="academy/">Academy</a></li>
-            <li><a href="agency/">Agency</a></li>
+            <li><a href="#academy">Academy</a></li>
+            <li><a href="#agency">Agency</a></li>
             <li><a href="#tracks">Tracks</a></li>
             <li><a href="#courses">Courses</a></li>
             <li><a href="#features">Features</a></li>
@@ -82,6 +83,48 @@
           </div>
           <div class="hero-media">
             <img src="./assets/img/hero.svg" alt="Learners collaborating on projects" loading="lazy" width="640" height="420">
+          </div>
+        </div>
+      </section>
+
+      <section id="academy" class="features">
+        <div class="container">
+          <h2>SkillForge Academy</h2>
+          <p class="muted">Guided learning tracks, mentor support, and job-ready outcomes.</p>
+          <div class="feature-grid">
+            <article class="feature">
+              <h3>Track-based learning</h3>
+              <p>Structured paths from fundamentals to advanced topics.</p>
+            </article>
+            <article class="feature">
+              <h3>Mentor feedback</h3>
+              <p>Actionable reviews on projects and checkpoints.</p>
+            </article>
+            <article class="feature">
+              <h3>Career readiness</h3>
+              <p>Portfolio, interview prep, and industry-aligned skills.</p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section id="agency" class="features">
+        <div class="container">
+          <h2>SkillForge Agency</h2>
+          <p class="muted">Digital products, training, and implementation for teams.</p>
+          <div class="feature-grid">
+            <article class="feature">
+              <h3>Web & App development</h3>
+              <p>From idea to launch with modern stacks and best practices.</p>
+            </article>
+            <article class="feature">
+              <h3>Training & enablement</h3>
+              <p>Upskill your team with workshops and tailored programs.</p>
+            </article>
+            <article class="feature">
+              <h3>Cloud & DevOps</h3>
+              <p>CI/CD pipelines, infrastructure, and observability foundations.</p>
+            </article>
           </div>
         </div>
       </section>
@@ -239,11 +282,11 @@
             <p>Email <a href="mailto:support@skillforge.example">support@skillforge.example</a> or call <a href="tel:+15555555555">+1 (555) 555-5555</a></p>
           </div>
           <div>
-            <p class="muted">Social handles coming soon.</p>
+            <p class="muted">Follow us:</p>
             <ul class="social">
-              <li><a href="#" aria-label="Twitter" aria-disabled="true">Twitter</a></li>
-              <li><a href="#" aria-label="LinkedIn" aria-disabled="true">LinkedIn</a></li>
-              <li><a href="#" aria-label="YouTube" aria-disabled="true">YouTube</a></li>
+              <li><a href="#" aria-label="Twitter">Twitter</a></li>
+              <li><a href="#" aria-label="LinkedIn">LinkedIn</a></li>
+              <li><a href="#" aria-label="YouTube">YouTube</a></li>
             </ul>
           </div>
         </div>

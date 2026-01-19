@@ -51,15 +51,43 @@ document.querySelector('.feedback-form')?.addEventListener('submit', (e) => {
   e.target.reset()
 })
 
-document.querySelectorAll('a[aria-disabled="true"]').forEach(a => {
-  a.addEventListener('click', (e) => e.preventDefault())
-})
+// Optional external logo override via meta[name="sf:logo"]
+;(function setLogo() {
+  const metaLogo = document.querySelector('meta[name="sf:logo"]')?.content
+  const logoEl = document.getElementById('brand-logo')
+  if (metaLogo && logoEl) logoEl.src = metaLogo
+})()
 
 ;(function markActiveNav() {
   const path = location.pathname.toLowerCase()
+  const hash = location.hash.toLowerCase()
   document.querySelectorAll('.nav-list a').forEach(a => {
     const href = a.getAttribute('href')?.toLowerCase() || ''
-    if (href.includes('academy') && path.includes('academy')) a.classList.add('active')
-    else if (href.includes('agency') && path.includes('agency')) a.classList.add('active')
+    a.classList.remove('active')
+    if ((href === '#academy' && (hash.includes('#academy') || path.includes('academy'))) ||
+        (href === '#agency' && (hash.includes('#agency') || path.includes('agency')))) {
+      a.classList.add('active')
+    }
   })
+})()
+
+;(function router() {
+  const host = location.hostname.toLowerCase()
+  if (host.startsWith('academy.')) {
+    if (location.hash !== '#academy') location.hash = '#academy'
+  } else if (host.startsWith('agency.')) {
+    if (location.hash !== '#agency') location.hash = '#agency'
+  } else {
+    if (location.pathname.toLowerCase().includes('/academy') && location.hash !== '#academy') location.hash = '#academy'
+    if (location.pathname.toLowerCase().includes('/agency') && location.hash !== '#agency') location.hash = '#agency'
+  }
+  function activateFromHash() {
+    document.querySelectorAll('.nav-list a').forEach(a => a.classList.remove('active'))
+    const link = document.querySelector(`.nav-list a[href="${location.hash}"]`)
+    link && link.classList.add('active')
+    const target = document.getElementById(location.hash.slice(1))
+    target && target.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
+  window.addEventListener('hashchange', activateFromHash)
+  if (location.hash) activateFromHash()
 })()
